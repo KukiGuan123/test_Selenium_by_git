@@ -1,0 +1,3 @@
+testCasePath: "tests\\data\\test_data.xlsx"
+log_dir: "outputs\\logs"
+report_dir: "outputs\\report"
