@@ -13,7 +13,7 @@ if __name__ == '__main__':
     ])
 
     if result.returncode == 0:
-        print("\n✅ 测试执行完成！")
-        print("📊 Excel / Word 报告已在 outputs 文件夹生成")
+        print("\n✅ Test Finish！")
+        print("📊 Excel / Word is generated successfully")
     else:
         print("\n❌ 测试执行失败！")
