@@ -16,4 +16,4 @@ if __name__ == '__main__':
         print("\n✅ Test Finish！")
         print("📊 Excel / Word is generated successfully")
     else:
-        print("\n❌ Test Fail！")
+        print("\n❌ Test Fail...")
