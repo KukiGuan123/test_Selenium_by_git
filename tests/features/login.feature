@@ -36,3 +36,17 @@ Feature: Login1
       | Sauce Labs Fleece Jacket         |
       | Sauce Labs Onesie                |
       | Test.allTheThings() T-Shirt (Red)|
+
+  Scenario Outline: checkout <user>
+    Given enter the cart
+    When enter checkout page
+    Then inpput "<user>" and finish
+
+    Examples:
+      | user |
+      | user1|
+      | user2|
+      | user3|
+      | user4|
+      | user5|
+      | user6|

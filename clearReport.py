@@ -1,9 +1,6 @@
 import os
 import shutil
-
-# 定义 report 文件夹路径（根据你项目结构调整，这里假设脚本和 report 同级）
-REPORT_DIR = os.path.join(os.path.dirname(__file__), "outputs/report")
-
+from src.utils.yaml import BASE_DIR
 
 def clean_folder(folder_path):
     """清空文件夹下所有文件和子文件夹，保留文件夹本身"""
@@ -27,7 +24,9 @@ def clean_folder(folder_path):
 if __name__ == "__main__":
     print("开始清空 report 文件夹...")
     # 清空所有子目录
-    for sub_dir in ["doc", "screenshot", "Summary", "xls"]:
-        sub_path = os.path.join(REPORT_DIR, sub_dir)
-        clean_folder(sub_path)
+    for sub_dir in ["doc", "screenshot", "Summary", "xls","log"]:
+        sub_path_report = os.path.join(BASE_DIR, sub_dir)
+        clean_folder(sub_path_report)
+        sub_path_log = os.path.join(BASE_DIR, sub_dir)
+        clean_folder(sub_path_log)
     print("✅ report 文件夹已清空！")

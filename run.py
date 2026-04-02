@@ -6,9 +6,7 @@ import sys
 os.system("chcp 65001")
 os.environ["PYTHONIOENCODING"] = "utf-8"
 os.environ["PYTHONUTF8"] = "1"
-
 if __name__ == '__main__':
-    # 只运行测试，不生成任何 allure 数据
     result = subprocess.run([
         sys.executable, "-m", "behave"
     ])

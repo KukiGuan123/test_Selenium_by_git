@@ -1,20 +1,16 @@
 import time
 from behave import given, when, then
 from playwright.sync_api import expect  # 同步导入
-from src.pages.login_page import LoginPage
+from src.pages.base_action import BasePage
 from src.utils.excel import ExcelUtil
 from src.utils.screenshot import Screenshot
-from src.utils.yaml import testCasepath
+from src.utils.yaml import testCasePath
 
 
 @given("open the login page")
 def step(context):
-    data = ExcelUtil.get_row(testCasepath, "Project", "url")
-    LoginPage.open_page(context,  ExcelUtil.get_cell(data, "value"))
-    Screenshot.attach_to_report(
-        context,
-        name=f"{context.feature.name}_{context.scenario.name}_1"
-    )
+    BasePage.open_page(context,  ExcelUtil.get_cell(testCasePath, "Project","url", "value"))
+    Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
 
 @given(u'maximize browser window')
 def step_impl(context):
@@ -24,21 +20,18 @@ def step_impl(context):
 @when('input user "{userAccount}"')
 def step(context, userAccount):
 
-    data = ExcelUtil.get_row(testCasepath, "Login", userAccount)
+    data = ExcelUtil.get_row(testCasePath, "Login", userAccount)
     user = ExcelUtil.get_cell(data, "username")
     pwd = ExcelUtil.get_cell(data, "password")
 
-    LoginPage.input_value(context,"#user-name", user)
-    LoginPage.input_value(context,"#password", pwd)
+    BasePage.input(context,"#user-name", user)
+    BasePage.input(context,"#password", pwd)
 
 
 @when("click login button")
 def step(context):
-    Screenshot.attach_to_report(
-        context,
-        name=f"{context.feature.name}_{context.scenario.name}_1"
-    )
-    LoginPage.click_login(context,"#login-button")
+    Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
+    BasePage.click(context,"#login-button")
 
 
 @then("login with {status} account")
@@ -51,12 +44,4 @@ def step(context, status):
         # ✅ 同步断言方法名：to_be_visible()
         expect(context.page.locator(f'//h3[contains(text(), {status})]')).to_be_visible()
 
-    Screenshot.attach_to_report(
-        context,
-        name=f"{context.feature.name}_{context.scenario.name}_2"
-    )
-
-    Screenshot.attach_to_report(
-        context,
-        name=f"{context.feature.name}_{context.scenario.name}_3"
-    )
+    Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")

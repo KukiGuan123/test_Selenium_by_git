@@ -10,8 +10,8 @@ class ExcelUtil:
     def get_sheet(excel_path: str, sheet_name: str) -> List[Dict[str, str | int | float | None]]:
         """
         获取整个 sheet 的所有数据（第一行作为 key，每一行作为字典）
-        :param excel_path: Excel 文件路径
-        :param sheet_name: Sheet 名称
+        :param excel: Excel 文件路径
+        :param sheet: Sheet 名称
         :return: [ {col1: val1, col2: val2}, {...} ]
         """
         if not Path(excel_path).exists():
@@ -41,65 +41,65 @@ class ExcelUtil:
         wb.close()
         return result
 
-    # ======================
-    # ✅ 修复后的 get_row（核心）
-    # ======================
+
     @staticmethod
     def get_row(
-        data_or_path: Union[str, List[Dict]],
-        sheet_name_or_filter: str = None,
-        filter_value: str = None
+        path_Or_sheet: Union[str, List[Dict]],
+        sheet_Or_filter: str = None,
+        filter: str = None
     ) -> Dict:
         """
         两用方法：
-        1. 传入 excel_path + sheet_name + filter
-        2. 传入 data_list + filter
+        1. 传入 excel_path + sheet + filter
+        2. 传入 sheet + filter
         """
-        # 情况 1：传入路径 (path, sheet, filter)
-        if isinstance(data_or_path, str) and sheet_name_or_filter and filter_value:
-            all_data = ExcelUtil.get_sheet(data_or_path, sheet_name_or_filter)
+        # 用法1：传入路径 (path, sheet, filter)
+        if isinstance(path_Or_sheet, str) and sheet_Or_filter and filter:
+            all_data = ExcelUtil.get_sheet(path_Or_sheet, sheet_Or_filter)
             for row in all_data:
-                if str(row.get("Filter", "")).strip() == str(filter_value).strip():
+                if str(row.get("Filter", "")).strip() == str(filter).strip():
                     return row
             return {}
 
-        # 情况 2：传入已经读取的数据 (data_list, filter)
-        elif isinstance(data_or_path, list) and sheet_name_or_filter:
-            all_data = data_or_path
+        # 用法2：传入已经读取的数据 (sheet, filter)
+        elif isinstance(path_Or_sheet, list) and sheet_Or_filter:
+            all_data = path_Or_sheet
             for row in all_data:
-                if str(row.get("Filter", "")).strip() == str(sheet_name_or_filter).strip():
+                if str(row.get("Filter", "")).strip() == str(sheet_Or_filter).strip():
                     return row
             return {}
 
         else:
             raise ValueError("参数错误！用法：\n1. get_row(path, sheet, filter) \n2. get_row(data_list, filter)")
 
-    # ======================
-    # ✅ 修复后的 get_cell（核心）
-    # ======================
+
     @staticmethod
     def get_cell(
-        row_or_path: Union[str, Dict],
-        col_or_sheet: str = None,
-        filter_val: str = None,
-        column_name: str = None
+        path_Or_sheet_Or_row: Union[str, Dict, List[Dict]],
+        sheet_Or_row_Or_filter: str = None,
+        row_Or_filter: str = None,
+        filter: str = None
     ):
         """
-        两用方法：
-        1. 传入 path, sheet, filter, column → 直接取值
-        2. 传入 row, column → 直接取值
+        🔥 支持 3 种用法（完全兼容旧代码）
+        1. get_cell(path, sheet, filter, column)
+        2. get_cell(row_dict, column)
+        3. get_cell(sheet_data_list, filter, column)   👈 你要的新用法
         """
-        # 情况 1：传入 path, sheet, filter, column (4个参数)
-        if column_name is not None:
-            # 这里的调用：get_row(path, sheet, filter)
-            row = ExcelUtil.get_row(row_or_path, col_or_sheet, filter_val)
-            return row.get(column_name, None)
 
-        # 情况 2：传入 row, column (2个参数)
-        elif isinstance(row_or_path, dict):
-            row = row_or_path
-            col = col_or_sheet
-            return row.get(col, None)
+        # 用法1：4个参数 → path, sheet, filter, column
+        if filter is not None:
+            row = ExcelUtil.get_row(path_Or_sheet_Or_row, sheet_Or_row_Or_filter, row_Or_filter)
+            return row.get(filter, None)
 
-        else:
-            raise ValueError("参数错误！用法：\n1. get_cell(path, sheet, filter, column) \n2. get_cell(row, column)")
+        # 用法2：2个参数 → row_dict, column
+        if isinstance(path_Or_sheet_Or_row, dict) and sheet_Or_row_Or_filter is not None and row_Or_filter is None:
+            return path_Or_sheet_Or_row.get(sheet_Or_row_Or_filter, None)
+
+        # 用法3：3个参数 → sheet_data, filter, column
+        if isinstance(path_Or_sheet_Or_row, list) and sheet_Or_row_Or_filter is not None and row_Or_filter is not None:
+            row = ExcelUtil.get_row(path_Or_sheet_Or_row, sheet_Or_row_Or_filter)
+            return row.get(row_Or_filter, None)
+
+        # 都不满足
+        raise ValueError("参数错误！支持用法：\n1. get_cell(path,sheet,filter,col)\n2. get_cell(row,col)\n3. get_cell(sheet_data,filter,col)")

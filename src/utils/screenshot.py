@@ -1,7 +1,6 @@
 from datetime import datetime
 from src.utils.yaml import SCREENSHOT_DIR
 
-
 class Screenshot:
     @staticmethod
     def attach_to_report(context, name="screenshot"):
@@ -13,9 +12,7 @@ class Screenshot:
             with open(path, "wb") as f:
                 f.write(img_bytes)
 
-            # ==============================================
             # 🔥 关键：支持一个步骤无限截图
-            # ==============================================
             if not hasattr(context, "screenshot_multi"):
                 context.screenshot_multi = []
 

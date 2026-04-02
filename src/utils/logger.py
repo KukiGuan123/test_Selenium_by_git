@@ -1,10 +1,9 @@
-# ==============================
-# 日志工具类（追加模式，不删除历史）
-# ==============================
 import logging
 import os
 from datetime import datetime
-from src.utils.yaml import LOG_DIR
+
+from src.utils import config
+
 
 class Logger:
     def __init__(self):
@@ -15,23 +14,24 @@ class Logger:
         if self.logger.handlers:
             return
 
-        # ======================
         # 格式定义
-        # ======================
         fmt = "%(asctime)s - %(levelname)s - %(message)s"
         date_fmt = "%Y-%m-%d %H:%M:%S"
 
-        # ======================
-        # 1. 文件输出（追加模式 a = append）
-        # 🔥 关键：mode="a" 不会删除旧日志
-        # ======================
+        # 1. 文件输出（追加模式 a = append） 关键：mode="a" 不会删除旧日志
+        LOG_DIR = config.ConfigUtil.get_value("log_dir")
         log_file = os.path.join(LOG_DIR, f"behave_{datetime.now().strftime('%Y%m%d')}.log")
+        # 确保日志文件夹存在（不存在自动创建）
+        os.makedirs(LOG_DIR, exist_ok=True)
+
+        # 确保日志文件存在（不存在自动新建）
+        if not os.path.exists(log_file):
+            open(log_file, "w", encoding="utf-8").close()
+
         file_handler = logging.FileHandler(log_file, encoding="utf-8", mode="a")
         file_handler.setFormatter(logging.Formatter(fmt, date_fmt))
 
-        # ======================
         # 2. 控制台彩色输出
-        # ======================
         class ColorFormatter(logging.Formatter):
             def format(self, record):
                 msg = super().format(record)
@@ -47,7 +47,6 @@ class Logger:
         # 添加处理器
         self.logger.addHandler(file_handler)
         self.logger.addHandler(console_handler)
-
 
     def info(self, msg):
         self.logger.info(msg)

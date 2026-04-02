@@ -18,9 +18,7 @@ class ReportGenerator:
         self._init_excel()
         self._init_word()
 
-    # ===========================
     # 初始化 Excel
-    # ===========================
     def _init_excel(self):
         # 主报表
         self.wb = openpyxl.Workbook()
@@ -39,9 +37,7 @@ class ReportGenerator:
         for col, w in zip("ABCDE", [20, 35, 12, 30, 30]):
             self.ws_sum.column_dimensions[col].width = w
 
-    # ===========================
     # 初始化 Word
-    # ===========================
     def _init_word(self):
         self.doc = Document()
         title = self.doc.add_heading(level=1)
@@ -62,9 +58,8 @@ class ReportGenerator:
             for cell in col.cells:
                 cell.width = Inches(w)
 
-    # ===========================
+
     # 添加测试步骤数据
-    # ===========================
     def add_step(self, feature, scenario, step, result, error, pic_path):
         self.all_steps.append({
             "feature": feature,
@@ -79,9 +74,8 @@ class ReportGenerator:
         self._save_excel()
         self._save_word()
 
-    # ===========================
+
     # 生成 Excel 主报表
-    # ===========================
     def _save_excel(self):
         for data in self.all_steps:
             row = self.ws.max_row + 1
@@ -106,9 +100,7 @@ class ReportGenerator:
         self._build_summary()
         return f"{REPORT_PATHS['xls']}/{PROJECT_NAME}_详细报告_{self.time_str}.xlsx"
 
-    # ===========================
     # 【封装】批量插入图片（横向）
-    # ===========================
     def _insert_images_in_row(self, pic_path, row):
         if not pic_path:
             return
@@ -129,9 +121,7 @@ class ReportGenerator:
             except Exception as e:
                 print(f"图片插入失败: {e}")
 
-    # ===========================
     # 【封装】生成 Summary 报表
-    # ===========================
     def _build_summary(self):
         summary = defaultdict(list)
         for s in self.all_steps:
@@ -153,18 +143,14 @@ class ReportGenerator:
         self._merge_cells(self.ws_sum, merge_cols=[1, 2])
         self.wb_sum.save(f"{REPORT_PATHS['summary']}/{PROJECT_NAME}_详细报告_{self.time_str}.xlsx")
 
-    # ===========================
     # 【通用封装】合并单元格（所有表格通用）
-    # ===========================
     def _merge_cells(self, ws, merge_cols):
         if ws.max_row <= 1:
             return
         for col in merge_cols:
             self._merge_single_column(ws, col)
 
-    # ===========================
     # 【通用封装】单列合并（核心算法）
-    # ===========================
     def _merge_single_column(self, ws, col_idx):
         start_row = 2
         current_val = ws.cell(row=start_row, column=col_idx).value
@@ -184,9 +170,8 @@ class ReportGenerator:
         for row in range(2, ws.max_row + 1):
             ws.cell(row=row, column=col_idx).alignment = Alignment(horizontal="center", vertical="center", wrap_text=True)
 
-    # ===========================
-    # 生成 Word 报告（已修复！）
-    # ===========================
+
+    # 生成 Word 报告
     def _save_word(self):
         grouped = defaultdict(lambda: defaultdict(list))
         for s in self.all_steps:
@@ -231,17 +216,14 @@ class ReportGenerator:
                     except:
                         pass
 
-        # ===========================
         # 必须先合并 → 再保存！
-        # ===========================
         self._merge_word_table()
 
         doc_path = f"{REPORT_PATHS['doc']}/{PROJECT_NAME}_Word报告_{self.time_str}.docx"
         self.doc.save(doc_path)
         return doc_path
-    # ===========================
+
     # 【封装】Word 表格合并
-    # ===========================
     def _merge_word_table(self):
         merge_map = defaultdict(list)
         for i, s in enumerate(self.all_steps):
@@ -252,9 +234,8 @@ class ReportGenerator:
                 self._merge_word_cells(self.table, 0, rows[0], rows[-1])
                 self._merge_word_cells(self.table, 1, rows[0], rows[-1])
 
-    # ===========================
+
     # 【封装】Word 单元格合并
-    # ===========================
     def _merge_word_cells(self, table, col, start_row, end_row):
         try:
             table.cell(start_row, col).merge(table.cell(end_row, col))

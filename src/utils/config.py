@@ -4,7 +4,7 @@ from typing import Any
 
 
 class ConfigUtil:
-    """全局配置工具类：读取 config.yaml 任意数据"""
+    """全局配置工具类：读取 config.yml 任意数据"""
 
     # 内部缓存，只加载一次
     __config = None
@@ -16,9 +16,8 @@ class ConfigUtil:
             return ConfigUtil.__config
 
         try:
-            # 👉 自动找 config.yaml（路径通用，不用改）
             base_path = Path(__file__).resolve().parent.parent  # src/
-            config_path = base_path / "config" / "config.yaml"
+            config_path = base_path / "config" / "config.yml"
 
             with open(config_path, "r", encoding="utf-8") as f:
                 ConfigUtil.__config = yaml.safe_load(f) or {}
