@@ -38,7 +38,7 @@ def before_feature(context, feature):
 def before_scenario(context, scenario):
     global current_scenario
     current_scenario = scenario.name
-    logger.info("\n"+"=" * 140 )
+    logger.info("\n"+"=" * 120 )
     logger.info( f"Scenario :{current_scenario}" )
 
     # ✅ Scenario 开始计时

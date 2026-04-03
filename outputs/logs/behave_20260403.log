@@ -1,0 +1,188 @@
+2026-04-03 17:19:25 - INFO - ============================================================
+2026-04-03 17:19:25 - INFO - 🚀 开始执行自动化测试
+2026-04-03 17:19:25 - INFO - ============================================================
+2026-04-03 17:19:28 - INFO - 
+📦 Feature: Login1
+2026-04-03 17:19:29 - INFO - 
+============================================================================================================================================
+2026-04-03 17:19:29 - INFO - Scenario :Successful login
+2026-04-03 17:19:53 - INFO - ✅ open the login page | PASS | 耗时 24.533s
+2026-04-03 17:19:53 - INFO - ✅ input user "testAccount" | PASS | 耗时 0.091s
+2026-04-03 17:19:54 - INFO - ✅ click login button | PASS | 耗时 0.377s
+2026-04-03 17:19:56 - INFO - ✅ login with "successful" account | PASS | 耗时 2.367s
+2026-04-03 17:19:56 - INFO - 
+============================================================================================================================================
+2026-04-03 17:19:56 - INFO - Scenario :sort and add Sauce Labs Backpack in cart -- @1.1 
+2026-04-03 17:19:56 - INFO - ✅ sort all item | PASS | 耗时 0.356s
+2026-04-03 17:19:57 - INFO - ✅ click "Sauce Labs Backpack" and check details | PASS | 耗时 0.555s
+2026-04-03 17:19:58 - INFO - ✅ add in cart | PASS | 耗时 1.304s
+2026-04-03 17:19:58 - INFO - ✅ check if "Sauce Labs Backpack" is in cart | PASS | 耗时 0.218s
+2026-04-03 17:19:59 - INFO - ✅ back to all items page | PASS | 耗时 0.253s
+2026-04-03 17:19:59 - INFO - 
+============================================================================================================================================
+2026-04-03 17:19:59 - INFO - Scenario :sort and add Sauce Labs Bike Light in cart -- @1.2 
+2026-04-03 17:19:59 - INFO - ✅ sort all item | PASS | 耗时 0.337s
+2026-04-03 17:19:59 - INFO - ✅ click "Sauce Labs Bike Light" and check details | PASS | 耗时 0.351s
+2026-04-03 17:20:01 - INFO - ✅ add in cart | PASS | 耗时 1.315s
+2026-04-03 17:20:01 - INFO - ✅ check if "Sauce Labs Bike Light" is in cart | PASS | 耗时 0.274s
+2026-04-03 17:20:01 - INFO - ✅ back to all items page | PASS | 耗时 0.249s
+2026-04-03 17:20:01 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:01 - INFO - Scenario :sort and add Sauce Labs Bolt T-Shirt in cart -- @1.3 
+2026-04-03 17:20:01 - INFO - ✅ sort all item | PASS | 耗时 0.297s
+2026-04-03 17:20:02 - INFO - ✅ click "Sauce Labs Bolt T-Shirt" and check details | PASS | 耗时 0.268s
+2026-04-03 17:20:03 - INFO - ✅ add in cart | PASS | 耗时 1.335s
+2026-04-03 17:20:03 - INFO - ✅ check if "Sauce Labs Bolt T-Shirt" is in cart | PASS | 耗时 0.366s
+2026-04-03 17:20:04 - INFO - ✅ back to all items page | PASS | 耗时 0.366s
+2026-04-03 17:20:04 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:04 - INFO - Scenario :sort and add Sauce Labs Fleece Jacket in cart -- @1.4 
+2026-04-03 17:20:04 - INFO - ✅ sort all item | PASS | 耗时 0.656s
+2026-04-03 17:20:05 - INFO - ✅ click "Sauce Labs Fleece Jacket" and check details | PASS | 耗时 0.549s
+2026-04-03 17:20:06 - INFO - ✅ add in cart | PASS | 耗时 1.324s
+2026-04-03 17:20:07 - INFO - ✅ check if "Sauce Labs Fleece Jacket" is in cart | PASS | 耗时 0.289s
+2026-04-03 17:20:07 - INFO - ✅ back to all items page | PASS | 耗时 0.322s
+2026-04-03 17:20:07 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:07 - INFO - Scenario :sort and add Sauce Labs Onesie in cart -- @1.5 
+2026-04-03 17:20:07 - INFO - ✅ sort all item | PASS | 耗时 0.361s
+2026-04-03 17:20:08 - INFO - ✅ click "Sauce Labs Onesie" and check details | PASS | 耗时 0.357s
+2026-04-03 17:20:09 - INFO - ✅ add in cart | PASS | 耗时 1.291s
+2026-04-03 17:20:09 - INFO - ✅ check if "Sauce Labs Onesie" is in cart | PASS | 耗时 0.352s
+2026-04-03 17:20:10 - INFO - ✅ back to all items page | PASS | 耗时 0.354s
+2026-04-03 17:20:10 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:10 - INFO - Scenario :sort and add Test.allTheThings() T-Shirt (Red) in cart -- @1.6 
+2026-04-03 17:20:10 - INFO - ✅ sort all item | PASS | 耗时 0.331s
+2026-04-03 17:20:10 - INFO - ✅ click "Test.allTheThings() T-Shirt (Red)" and check details | PASS | 耗时 0.320s
+2026-04-03 17:20:12 - INFO - ✅ add in cart | PASS | 耗时 1.358s
+2026-04-03 17:20:12 - INFO - ✅ check if "Test.allTheThings() T-Shirt (Red)" is in cart | PASS | 耗时 0.380s
+2026-04-03 17:20:12 - INFO - ✅ back to all items page | PASS | 耗时 0.352s
+2026-04-03 17:20:12 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:12 - INFO - Scenario :sort and add Sauce Labs Backpack in cart -- @1.1 
+2026-04-03 17:20:13 - INFO - ✅ enter the cart | PASS | 耗时 0.364s
+2026-04-03 17:20:13 - INFO - ✅ remove "Sauce Labs Backpack" | PASS | 耗时 0.421s
+2026-04-03 17:20:13 - INFO - ✅ check if "Sauce Labs Backpack" is removed | PASS | 耗时 0.254s
+2026-04-03 17:20:14 - INFO - ✅ back to all items page | PASS | 耗时 0.328s
+2026-04-03 17:20:14 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:14 - INFO - Scenario :sort and add Sauce Labs Bike Light in cart -- @1.2 
+2026-04-03 17:20:14 - INFO - ✅ enter the cart | PASS | 耗时 0.378s
+2026-04-03 17:20:14 - INFO - ✅ remove "Sauce Labs Bike Light" | PASS | 耗时 0.313s
+2026-04-03 17:20:15 - INFO - ✅ check if "Sauce Labs Bike Light" is removed | PASS | 耗时 0.216s
+2026-04-03 17:20:15 - INFO - ✅ back to all items page | PASS | 耗时 0.298s
+2026-04-03 17:20:15 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:15 - INFO - Scenario :sort and add Sauce Labs Bolt T-Shirt in cart -- @1.3 
+2026-04-03 17:20:15 - INFO - ✅ enter the cart | PASS | 耗时 0.307s
+2026-04-03 17:20:16 - INFO - ✅ remove "Sauce Labs Bolt T-Shirt" | PASS | 耗时 0.262s
+2026-04-03 17:20:16 - INFO - ✅ check if "Sauce Labs Bolt T-Shirt" is removed | PASS | 耗时 0.228s
+2026-04-03 17:20:16 - INFO - ✅ back to all items page | PASS | 耗时 0.462s
+2026-04-03 17:20:16 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:16 - INFO - Scenario :sort and add Sauce Labs Fleece Jacket in cart -- @1.4 
+2026-04-03 17:20:17 - INFO - ✅ enter the cart | PASS | 耗时 0.432s
+2026-04-03 17:20:17 - INFO - ✅ remove "Sauce Labs Fleece Jacket" | PASS | 耗时 0.302s
+2026-04-03 17:20:17 - INFO - ✅ check if "Sauce Labs Fleece Jacket" is removed | PASS | 耗时 0.194s
+2026-04-03 17:20:18 - INFO - ✅ back to all items page | PASS | 耗时 0.334s
+2026-04-03 17:20:18 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:18 - INFO - Scenario :sort and add Sauce Labs Onesie in cart -- @1.5 
+2026-04-03 17:20:18 - INFO - ✅ enter the cart | PASS | 耗时 0.270s
+2026-04-03 17:20:18 - INFO - ✅ remove "Sauce Labs Onesie" | PASS | 耗时 0.280s
+2026-04-03 17:20:18 - INFO - ✅ check if "Sauce Labs Onesie" is removed | PASS | 耗时 0.191s
+2026-04-03 17:20:19 - INFO - ✅ back to all items page | PASS | 耗时 0.499s
+2026-04-03 17:20:19 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:19 - INFO - Scenario :sort and add Test.allTheThings() T-Shirt (Red) in cart -- @1.6 
+2026-04-03 17:20:19 - INFO - ✅ enter the cart | PASS | 耗时 0.441s
+2026-04-03 17:20:20 - INFO - ✅ remove "Test.allTheThings() T-Shirt (Red)" | PASS | 耗时 0.506s
+2026-04-03 17:20:20 - INFO - ✅ check if "Test.allTheThings() T-Shirt (Red)" is removed | PASS | 耗时 0.249s
+2026-04-03 17:20:20 - INFO - ✅ back to all items page | PASS | 耗时 0.364s
+2026-04-03 17:20:20 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:20 - INFO - Scenario :checkout user1 -- @1.1 
+2026-04-03 17:20:21 - INFO - ✅ enter the cart | PASS | 耗时 0.399s
+2026-04-03 17:20:21 - INFO - ✅ enter checkout page | PASS | 耗时 0.365s
+2026-04-03 17:20:22 - INFO - ✅ inpput "user1" and finish | PASS | 耗时 0.582s
+2026-04-03 17:20:22 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:22 - INFO - Scenario :checkout user2 -- @1.2 
+2026-04-03 17:20:22 - INFO - ✅ enter the cart | PASS | 耗时 0.255s
+2026-04-03 17:20:22 - INFO - ✅ enter checkout page | PASS | 耗时 0.238s
+2026-04-03 17:20:23 - INFO - ✅ inpput "user2" and finish | PASS | 耗时 0.588s
+2026-04-03 17:20:23 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:23 - INFO - Scenario :checkout user3 -- @1.3 
+2026-04-03 17:20:23 - INFO - ✅ enter the cart | PASS | 耗时 0.227s
+2026-04-03 17:20:23 - INFO - ✅ enter checkout page | PASS | 耗时 0.236s
+2026-04-03 17:20:24 - INFO - ✅ inpput "user3" and finish | PASS | 耗时 0.451s
+2026-04-03 17:20:24 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:24 - INFO - Scenario :checkout user4 -- @1.4 
+2026-04-03 17:20:24 - INFO - ✅ enter the cart | PASS | 耗时 0.209s
+2026-04-03 17:20:24 - INFO - ✅ enter checkout page | PASS | 耗时 0.222s
+2026-04-03 17:20:25 - INFO - ✅ inpput "user4" and finish | PASS | 耗时 0.436s
+2026-04-03 17:20:25 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:25 - INFO - Scenario :checkout user5 -- @1.5 
+2026-04-03 17:20:25 - INFO - ✅ enter the cart | PASS | 耗时 0.187s
+2026-04-03 17:20:25 - INFO - ✅ enter checkout page | PASS | 耗时 0.294s
+2026-04-03 17:20:25 - INFO - ✅ inpput "user5" and finish | PASS | 耗时 0.463s
+2026-04-03 17:20:25 - INFO - 
+============================================================================================================================================
+2026-04-03 17:20:25 - INFO - Scenario :checkout user6 -- @1.6 
+2026-04-03 17:20:26 - INFO - ✅ enter the cart | PASS | 耗时 0.247s
+2026-04-03 17:20:26 - INFO - ✅ enter checkout page | PASS | 耗时 0.258s
+2026-04-03 17:20:27 - INFO - ✅ inpput "user6" and finish | PASS | 耗时 0.574s
+2026-04-03 17:20:27 - INFO - ✅ Feature 完成：Login1，浏览器已关闭
+2026-04-03 17:20:30 - INFO - ================================================================================
+2026-04-03 17:20:30 - INFO - ✅ 测试完成，报告已生成：
+2026-04-03 17:20:30 - INFO - 📊 详细Excel: outputs\report/xls/项目A_详细Excel报告_20260403_171925.xlsx
+2026-04-03 17:20:30 - INFO - 📊 总结Excel: outputs\report/Summary/项目A_总结报告_20260403_171925.xlsx
+2026-04-03 17:20:30 - INFO - 📄 Word报告: outputs\report/doc/项目A_详细Word报告_20260403_171925.docx
+2026-04-03 17:20:30 - INFO - ================================================================================
+2026-04-03 17:20:30 - INFO - ✅ 准备发送 3 个文件：
+2026-04-03 17:20:30 - INFO -  → 📄文件1 项目A_详细Excel报告_20260403_171925.xlsx
+2026-04-03 17:20:30 - INFO -  → 📄文件2 项目A_总结报告_20260403_171925.xlsx
+2026-04-03 17:20:30 - INFO -  → 📄文件3 项目A_详细Word报告_20260403_171925.docx
+2026-04-03 17:20:30 - INFO - ================================================================================
+2026-04-03 17:20:31 - INFO - 🔹 开始发邮件
+2026-04-03 17:21:32 - INFO - ✅ 邮件发送成功！
+2026-04-03 19:28:27 - INFO - ============================================================
+2026-04-03 19:28:27 - INFO - 🚀 开始执行自动化测试
+2026-04-03 19:28:27 - INFO - ============================================================
+2026-04-03 19:28:28 - INFO - 
+📦 Feature: Login1
+2026-04-03 19:28:28 - INFO - 
+============================================================================================================================================
+2026-04-03 19:28:28 - INFO - Scenario :Successful login
+2026-04-03 19:28:58 - ERROR - ❌ open the login page | FAIL | Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.saucedemo.com/", waiting until "load"
+ | 耗时 30.050s
+2026-04-03 19:29:28 - ERROR - 📸 失败已截图：Successful login
+2026-04-03 19:29:28 - INFO - 
+============================================================================================================================================
+2026-04-03 19:29:28 - INFO - Scenario :sort and add Sauce Labs Backpack in cart -- @1.1 
+2026-04-03 19:29:58 - ERROR - ❌ sort all item | FAIL | Page.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id=\"header_container\"]//select[@class=\"product_sort_container\"]")
+ | 耗时 30.009s
+2026-04-03 19:30:28 - ERROR - 📸 失败已截图：sort and add Sauce Labs Backpack in cart -- @1.1 
+2026-04-03 19:30:28 - INFO - 
+============================================================================================================================================
+2026-04-03 19:30:28 - INFO - Scenario :sort and add Sauce Labs Bike Light in cart -- @1.2 
+2026-04-03 19:30:58 - ERROR - ❌ sort all item | FAIL | Page.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id=\"header_container\"]//select[@class=\"product_sort_container\"]")
+ | 耗时 30.008s
+2026-04-03 19:31:28 - ERROR - 📸 失败已截图：sort and add Sauce Labs Bike Light in cart -- @1.2 
+2026-04-03 19:31:28 - INFO - 
+============================================================================================================================================
+2026-04-03 19:31:28 - INFO - Scenario :sort and add Sauce Labs Bolt T-Shirt in cart -- @1.3 
+2026-04-03 19:31:58 - ERROR - ❌ sort all item | FAIL | Page.select_option: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("//*[@id=\"header_container\"]//select[@class=\"product_sort_container\"]")
+ | 耗时 30.006s
