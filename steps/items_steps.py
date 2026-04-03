@@ -9,7 +9,7 @@ from src.utils.yaml import testCasePath
 
 @given("sort all item")
 def sort(context):
-    BasePage.selectByValue(context, '//*[@id="header_container"]//select[@class="product_sort_container"]',"Name (Z to A)")
+    BasePage.select_by_value(context, '//*[@id="header_container"]//select[@class="product_sort_container"]',"Name (Z to A)")
     Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
 
 @when('click "{goods}" and check details')
@@ -71,7 +71,7 @@ def checkInCart(context,user):
         BasePage.input(context,'//*[@id="last-name"]',lastName)
 
     if zipCode is not None:
-        BasePage.input(context,'//*[@id="postal-code"]',zipCode)
+        BasePage.input(context, '//*[@id="postal-code"]', zipCode)
 
     Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
     BasePage.click(context,'//*[@id="continue"]')

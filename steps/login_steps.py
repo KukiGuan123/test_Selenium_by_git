@@ -8,18 +8,17 @@ from src.utils.yaml import testCasePath
 
 
 @given("open the login page")
-def step(context):
+def open_page(context):
     BasePage.open_page(context,  ExcelUtil.get_cell(testCasePath, "Project","url", "value"))
     Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
 
 @given(u'maximize browser window')
-def step_impl(context):
+def maxWin(context):
     context.page.set_viewport_size({"width": 1920, "height": 1080})
 
 
 @when('input user "{userAccount}"')
-def step(context, userAccount):
-
+def inputUser(context, userAccount):
     data = ExcelUtil.get_row(testCasePath, "Login", userAccount)
     user = ExcelUtil.get_cell(data, "username")
     pwd = ExcelUtil.get_cell(data, "password")
@@ -29,13 +28,13 @@ def step(context, userAccount):
 
 
 @when("click login button")
-def step(context):
+def clickLogin(context):
     Screenshot.attach_to_report(context, name=f"{context.feature.name}_{context.scenario.name}_1")
     BasePage.click(context,"#login-button")
 
 
 @then("login with {status} account")
-def step(context, status):
+def checkStatus(context, status):
 
     time.sleep(2)
     if "success" in status:  # ✅ 修正拼写

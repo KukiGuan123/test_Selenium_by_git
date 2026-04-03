@@ -13,7 +13,7 @@ if __name__ == '__main__':
     ])
 
     if result.returncode == 0:
-        print("\n✅ Test Finish！")
-        print("📊 Excel / Word is generated successfully")
+        print("\nTest Finish！")
+        print("Excel / Word is generated successfully")
     else:
-        print("\n❌ Test Fail...")
+        print("\nTest Fail...")
