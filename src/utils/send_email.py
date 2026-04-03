@@ -44,7 +44,7 @@ def send_email_with_batch_files(
     msg['From'] = from_email
     msg['To'] = to_email
     msg[
-        'Subject'] = f"【{PROJECT_NAME}_UI自动化测试报告】 {now_time}  | 成功：{pass_count} 失败：{fail_count}  跳过：{skip_count}"
+        'Subject'] = f"【{PROJECT_NAME}_UI自动化测试报告】| {now_time} | 成功:{pass_count} 失败:{fail_count}  跳过:{skip_count}"
 
     html = f"""
 <html>
