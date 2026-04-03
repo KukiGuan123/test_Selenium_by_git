@@ -3,8 +3,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 import os
+from collections import defaultdict
 from datetime import datetime
-from src.utils.yaml import logger, from_email, to_email, smtp_server, smtp_port, password, PROJECT_NAME
+from src.utils.yaml import logger, from_email, to_email, smtp_server, smtp_port, password, PROJECT_NAME, tester
 
 
 def send_email_with_batch_files(
@@ -34,6 +35,11 @@ def send_email_with_batch_files(
     logger.info(f"📊 Scenario总数：{total_count} | 成功：{pass_count} | 失败：{fail_count} | 跳过：{skip_count}")
     logger.info("=" * 80)
 
+    if fail_count == 0:
+        result_text = "全部通过 ✅"
+    else:
+        result_text = f"部分失败 ❌（失败{fail_count}个）"
+
     msg = MIMEMultipart()
     msg['From'] = from_email
     msg['To'] = to_email
@@ -57,8 +63,10 @@ def send_email_with_batch_files(
     </style>
 </head>
 <body>
-    <h2>Web UI 自动化测试结果</h2>
-    <p>执行时间：{now_time}</p>
+    <h2 style="text-align: center; font-size: 26px; color: #1f4e79;">{PROJECT_NAME}自动化测试结果</h2>
+    <p><strong>执行时间：</strong>{now_time}</p>
+    <p><strong>测试人员：</strong>{tester}</p>
+    <p><strong>执行结果：</strong>{result_text}</p>
 
     <!-- 1. 总统计表 -->
     <h3>📊 用例统计</h3>
@@ -81,7 +89,6 @@ def send_email_with_batch_files(
     <h3>📄 失败用例详细信息</h3>
 """
 
-    # 相同 Feature 合并显示
     if fail_count > 0:
         html += """
         <table class="detail">
@@ -94,7 +101,7 @@ def send_email_with_batch_files(
             </tr>
         """
 
-        from collections import defaultdict
+
         feature_map = defaultdict(list)
         for item in failed_list:
             feature_map[item["feature"]].append(item)
@@ -117,8 +124,6 @@ def send_email_with_batch_files(
         html += """
         </table>
         """
-    else:
-        html += "<h3 style='color:green'>✅ 全部用例执行成功</h3>"
 
     html += """
     <br>

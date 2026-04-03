@@ -64,10 +64,6 @@ class ReportGenerator:
             "screenshot": pic_path
         })
 
-    # def save_all(self):
-    #     self._save_excel()
-    #     self._save_word()
-
     def _save_excel(self):
         for data in self.all_steps:
             row = self.ws.max_row + 1
