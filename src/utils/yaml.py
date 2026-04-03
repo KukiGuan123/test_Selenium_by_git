@@ -25,4 +25,9 @@ REPORT_PATHS = {
                 }  # 测试报告路径
 LOG_DIR = config.ConfigUtil.get_value("log_dir")  # 日志路径
 
+
+detailExcelReport = "详细Excel报告"
+detailWordReport =  "详细Word报告"
+summaryExcelReport =  "总结报告"
+
 logger = Logger()

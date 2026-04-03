@@ -8,7 +8,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 import os
 from collections import defaultdict
 from datetime import datetime
-from src.utils.yaml import REPORT_PATHS, PROJECT_NAME
+from src.utils.yaml import REPORT_PATHS, PROJECT_NAME, detailWordReport, detailExcelReport, summaryExcelReport
 
 
 class ReportGenerator:
@@ -94,11 +94,11 @@ class ReportGenerator:
 
         # 合并主表格单元格
         self._merge_cells(self.ws, merge_cols=[1, 2])
-        self.wb.save(f"{REPORT_PATHS['xls']}/{PROJECT_NAME}_详细报告_{self.time_str}.xlsx")
+        self.wb.save(f"{REPORT_PATHS['xls']}/{PROJECT_NAME}_{detailExcelReport}_{self.time_str}.xlsx")
 
         # 生成 Summary
         self._build_summary()
-        return f"{REPORT_PATHS['xls']}/{PROJECT_NAME}_详细报告_{self.time_str}.xlsx"
+        return f"{REPORT_PATHS['xls']}/{PROJECT_NAME}_{detailExcelReport}_{self.time_str}.xlsx"
 
     # 【封装】批量插入图片（横向）
     def _insert_images_in_row(self, pic_path, row):
@@ -141,7 +141,7 @@ class ReportGenerator:
 
         # 合并 Summary
         self._merge_cells(self.ws_sum, merge_cols=[1, 2])
-        self.wb_sum.save(f"{REPORT_PATHS['summary']}/{PROJECT_NAME}_详细报告_{self.time_str}.xlsx")
+        self.wb_sum.save(f"{REPORT_PATHS['summary']}/{PROJECT_NAME}_{summaryExcelReport}_{self.time_str}.xlsx")
 
     # 【通用封装】合并单元格（所有表格通用）
     def _merge_cells(self, ws, merge_cols):
@@ -219,7 +219,7 @@ class ReportGenerator:
         # 必须先合并 → 再保存！
         self._merge_word_table()
 
-        doc_path = f"{REPORT_PATHS['doc']}/{PROJECT_NAME}_Word报告_{self.time_str}.docx"
+        doc_path = f"{REPORT_PATHS['doc']}/{PROJECT_NAME}_{detailWordReport}_{self.time_str}.docx"
         self.doc.save(doc_path)
         return doc_path
 

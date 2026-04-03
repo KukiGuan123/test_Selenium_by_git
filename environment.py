@@ -3,7 +3,7 @@ import time
 from playwright.sync_api import sync_playwright
 
 from src.utils.send_email import send_email_with_batch_files
-from src.utils.yaml import logger
+from src.utils.yaml import logger, summaryExcelReport
 from src.utils import screenshot
 from src.utils.reportGenerator import ReportGenerator
 from src.utils.yaml import REPORT_PATHS, LOG_DIR, SCREENSHOT_DIR, PROJECT_NAME
@@ -87,7 +87,7 @@ def after_feature(context, feature):
 def after_all(context):
     xls = report._save_excel()
     doc = report._save_word()
-    sum_xls = f"{REPORT_PATHS['summary']}/{PROJECT_NAME}_详细报告_{report.time_str}.xlsx"
+    sum_xls = f"{REPORT_PATHS['summary']}/{PROJECT_NAME}_{summaryExcelReport}_{report.time_str}.xlsx"
 
     logger.info( "=" * 80)
     logger.info("✅ 测试完成，报告已生成：")
