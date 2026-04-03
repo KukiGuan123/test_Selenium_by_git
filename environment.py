@@ -2,7 +2,6 @@ import os
 import time
 from playwright.sync_api import sync_playwright
 from behave.model import Status
-
 from src.utils.send_email import send_email_with_batch_files
 from src.utils.yaml import logger, summaryExcelReport
 from src.utils import screenshot
